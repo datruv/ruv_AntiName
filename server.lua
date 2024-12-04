@@ -2,7 +2,10 @@ local Proxy = module("vrp", "lib/Proxy")
 
 vRP = Proxy.getInterface("vRP")
 
+-- 화이트리스트 이모지 ( 팩션 이모지 넣어주세요 ) --
 local allowed_emoji = {"🌟", "🐣", "🎓", "👮", "🎓", "💊", "🚘", "🍀", "🐧", "🔥", "🪓", "⚔"}
+-------------------------------------------------
+
 
 function card_menu(name, errorMessage)
     return {
@@ -31,7 +34,7 @@ function card_menu(name, errorMessage)
                                     },
                                     {
                                         type = "TextBlock",
-                                        text = "이 메세지의 지원이 필요하거나 부적절하다고 생각되는 경우 체인지 디스코드에 고객센터로 문의 남겨주세요.",
+                                        text = "이 메세지의 지원이 필요하거나 부적절하다고 생각되는 경우 서버 디스코드에 고객센터로 문의 남겨주세요.",
                                         wrap = true,
                                         horizontalAlignment = "Center",
                                         size = "Small",
@@ -50,8 +53,8 @@ function card_menu(name, errorMessage)
                                         actions = {
                                             {
                                                 type = "Action.OpenUrl",
-                                                title = "체인지 서버 디스코드 접속하기",
-                                                url = "https://discord.gg/chg"
+                                                title = "디스코드 접속하기",
+                                                url = "https://discord.gg/"
                                             }
                                         }
                                     }
@@ -71,7 +74,6 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
     local isValid = true
     local errorMessage = ""
 
-    -- 닉네임 검사
     if name:match("^[%a]+$") then
         isValid = false
         errorMessage = "영어로만 된 닉네임은 사용할 수 없습니다."
